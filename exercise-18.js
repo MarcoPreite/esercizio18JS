@@ -1,6 +1,15 @@
-function memoize(fn) {
+function memoize(factorial) {
   let cache = {};
-  return factorial
+  return (num) => {
+    if(cache[num]) {
+      console.log(cache);
+      return cache[num];
+    }
+    let x = factorial(num);
+    cache[num] = x;
+    return x
+  }
+
 }
 
 function factorial(x) {
@@ -15,3 +24,4 @@ factorial = memoize(factorial);
 console.log(factorial(10));
 console.log(factorial(6));
 console.log(factorial(5));
+console.log(factorial(10));
